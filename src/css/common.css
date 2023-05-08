@@ -43,3 +43,36 @@ img {
   text-transform: uppercase;
   color: rgb(0, 0, 0);
 }
+
+ul {
+  list-style: none;
+}
+
+.form {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 5px;  
+}
+
+label {
+  margin: 0px;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  width: 200;
+}
+
+input[type='number'] {
+  margin: 0px;
+  padding: 10px;
+  width: 200px;
+  height: 40px;
+  color: #000;  
+  font-size: 16px;
+}
+
+button[type='submit'] {
+  width: auto;
+  height: 40px;  
+}
