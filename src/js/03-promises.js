@@ -9,6 +9,19 @@ const refs = {
 
 refs.form.addEventListener('submit', onPromiseCreate);
 
+function createPromise(position, delay) {
+  return new Promise((resolve, reject) => {
+    const shouldResolve = Math.random() > 0.3;
+    setTimeout(() => {
+      if (shouldResolve) {
+        resolve({ position, delay });
+      } else {
+        reject({ position, delay });
+      }
+    }, delay);
+  });
+}
+
 function onPromiseCreate(e) {
   e.preventDefault();
 
@@ -31,17 +44,4 @@ function onPromiseCreate(e) {
       });
     delay += step;
   }
-}
-
-function createPromise(position, delay) {
-  return new Promise((resolve, reject) => {
-    const shouldResolve = Math.random() > 0.3;
-    setTimeout(() => {
-      if (shouldResolve) {
-        resolve({ position, delay });
-      } else {
-        reject({ position, delay });
-      }
-    }, delay);
-  });
 }
