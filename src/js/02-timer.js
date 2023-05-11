@@ -13,6 +13,9 @@ let currentDate = null;
 const refs = {
   dateInput: document.querySelector('input#datetime-picker'),
   btnStartTimer: document.querySelector('button[data-start]'),
+  btnPauseTimer: document.querySelector('button[data-pause]'),
+  btnResetTimer: document.querySelector('button[data-reset]'),
+  timer: document.querySelector('.timer'),
   daysRemaining: document.querySelector('[data-days]'),
   hoursRemaining: document.querySelector('[data-hours]'),
   minutesRemaining: document.querySelector('[data-minutes]'),
@@ -20,7 +23,11 @@ const refs = {
 };
 
 refs.btnStartTimer.disabled = true;
+refs.btnPauseTimer.disabled = false;
+refs.btnResetTimer.disabled = false;
 refs.btnStartTimer.addEventListener('click', timerStart);
+refs.btnPauseTimer.addEventListener('click', timerPause);
+refs.btnResetTimer.addEventListener('click', timerReset);
 
 let userTime = 0;
 
@@ -59,6 +66,20 @@ function timerStart() {
       convertMs(userTime);
     }
   }, TIMER_DELAY);
+}
+
+function timerPause() {
+  refs.btnStartTimer.disabled = false;
+  clearInterval(intervalId);
+}
+
+function timerReset() {
+  clearInterval(intervalId);
+  userTime = 0;
+  refs.timer = userTime;
+  selectedDate = userTime;
+  convertMs(userTime);
+  refs.dateInput.disabled = false;  
 }
 
 function createMarkup({ days, hours, minutes, seconds }) {
