@@ -58,12 +58,12 @@ function timerStart() {
       clearInterval(intervalId);
       refs.btnStartTimer.disabled = true;
       refs.dateInput.disabled = false;
-      refs.dateInput.readonly = false;
+      refs.dateInput.readOnly = false;
       return;
     } else {
       refs.btnStartTimer.disabled = true;
       refs.dateInput.disabled = true;
-      refs.dateInput.readonly = true;
+      refs.dateInput.readOnly = true;
       userTime = Math.floor(selectedDate - currentDate);
       convertMs(userTime);
     }
@@ -90,7 +90,7 @@ function timerReset() {
   selectedDate = userTime;
   convertMs(userTime);
   refs.dateInput.disabled = false;
-  refs.dateInput.readonly = false;
+  refs.dateInput.readOnly = false;
 }
 
 function createMarkup({ days, hours, minutes, seconds }) {
