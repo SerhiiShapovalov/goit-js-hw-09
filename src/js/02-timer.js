@@ -58,25 +58,23 @@ function timerStart() {
       clearInterval(intervalId);
       refs.btnStartTimer.disabled = true;
       refs.dateInput.disabled = false;
-      refs.dateInput.readOnly = false;
       return;
     } else {
       refs.btnStartTimer.disabled = true;
       refs.dateInput.disabled = true;
-      refs.dateInput.readOnly = true;
       userTime = Math.floor(selectedDate - currentDate);
       convertMs(userTime);
     }
   }, TIMER_DELAY);
 }
 
-// refs.btnStartTimer.addEventListener('click', () => {
-//   refs.dateInput.setAttribute('readonly', true);
-// });
+refs.btnStartTimer.addEventListener('click', () => {
+  refs.dateInput.setAttribute('readonly', true);
+});
 
-// refs.btnResetTimer.addEventListener('click', () => {
-//   refs.dateInput.removeAttribute('readonly');
-// });
+refs.btnResetTimer.addEventListener('click', () => {
+  refs.dateInput.removeAttribute('readonly');
+});
 
 function timerPause() {
   refs.btnStartTimer.disabled = false;
@@ -89,8 +87,7 @@ function timerReset() {
   refs.timer = userTime;
   selectedDate = userTime;
   convertMs(userTime);
-  refs.dateInput.disabled = false;
-  refs.dateInput.readOnly = false;
+  refs.dateInput.disabled = false;  
 }
 
 function createMarkup({ days, hours, minutes, seconds }) {
