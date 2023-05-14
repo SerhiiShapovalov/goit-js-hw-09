@@ -68,13 +68,13 @@ function timerStart() {
   }, TIMER_DELAY);
 }
 
-// refs.btnStartTimer.addEventListener('click', () => {
-//   refs.dateInput.setAttribute('readonly', true);
-// });
+refs.btnStartTimer.addEventListener('click', () => {
+  refs.dateInput.setAttribute('readonly', true);
+});
 
-// refs.btnResetTimer.addEventListener('click', () => {
-//   refs.dateInput.removeAttribute('readonly');
-// });
+refs.btnResetTimer.addEventListener('click', () => {
+  refs.dateInput.removeAttribute('readonly');
+});
 
 function timerPause() {
   refs.btnStartTimer.disabled = false;
